@@ -3,7 +3,7 @@ export const education = [
 		institution: 'Universitat de Girona',
 		degree: 'Computer Engineering Degree',
 		period: '2016 - 2020',
-		field: 'Enginyeria Informàtica',
+		field: 'Software engineering',
 		score: '8.4'
 	},
 	{
