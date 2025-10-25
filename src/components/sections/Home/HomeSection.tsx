@@ -45,6 +45,8 @@ export default ({ scrollToSection }: HomeSectionProps) => (
 			</div>
 
 			<button
+				title="Go to first section"
+				aria-label="Go to first section"
 				onClick={() => scrollToSection('about')}
 				className="animate-bounce text-blue-400 hover:text-blue-300 transition-colors"
 			>

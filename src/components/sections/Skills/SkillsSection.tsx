@@ -40,7 +40,12 @@ const SkillsSection = () => {
 				</div>
 				{!toggleValue && (
 					<div className="flex justify-center w-full mt-12 my-4">
-						<button onClick={toggle} className="animate-bounce text-blue-400 hover:text-blue-300 transition-colors">
+						<button
+							title="Show more skills"
+							aria-label="Show more skills"
+							onClick={toggle}
+							className="animate-bounce text-blue-400 hover:text-blue-300 transition-colors"
+						>
 							<ChevronDown size={32} />
 						</button>
 					</div>
