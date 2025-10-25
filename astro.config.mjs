@@ -5,9 +5,11 @@ import react from '@astrojs/react';
 
 import tailwindcss from '@tailwindcss/vite';
 
-console.log(import.meta.env.BASE_URL);
+const base = process.env.VITE_BASE_URL || '/';
+console.log(base);
 // https://astro.build/config
 export default defineConfig({
+	base,
 	integrations: [react()],
 	vite: {
 		plugins: [tailwindcss()],
