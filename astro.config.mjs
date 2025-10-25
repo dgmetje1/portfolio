@@ -5,11 +5,10 @@ import react from '@astrojs/react';
 
 import tailwindcss from '@tailwindcss/vite';
 
+console.log(import.meta.env.BASE_URL);
 // https://astro.build/config
 export default defineConfig({
 	integrations: [react()],
-	site: 'https://dgmetje1.github.io',
-	base: '/portfolio',
 	vite: {
 		plugins: [tailwindcss()],
 		server: {
