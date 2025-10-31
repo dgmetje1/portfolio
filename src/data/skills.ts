@@ -1,6 +1,6 @@
 export const skills = [
 	{ name: 'React.js', level: 99, category: 'frontend' },
-	{ name: 'AngularJS', level: 90, category: 'frontend' },
+	{ name: 'Angular', level: 90, category: 'frontend' },
 	{ name: 'TypeScript', level: 88, category: 'frontend' },
 	{ name: 'Jest/Vitest', level: 95, category: 'testing' },
 	{ name: 'HTML/CSS', level: 95, category: 'frontend' },

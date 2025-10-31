@@ -7,7 +7,7 @@ export const experiences = [
 		location: 'Cassà de la Selva, Catalonia, Spain',
 		description:
 			'Leading frontend development initiatives and contributing to backend architecture, building scalable web applications.',
-		highlights: ['React.js', 'AngularJS', '.NET', 'CI/CD', 'Team Leadership']
+		highlights: ['React.js', 'Angular', '.NET', 'CI/CD', 'Team Leadership']
 	},
 	{
 		company: '6TEMS COMUNICACIÓ INTERACTIVA',
