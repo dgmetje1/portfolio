@@ -16,11 +16,11 @@ export default ({ scrollToSection }: HomeSectionProps) => (
 				Dani Garcia Metje
 			</h1>
 
-			<p className="text-2xl md:text-3xl text-blue-300 mb-6">Senior Frontend Web Developer</p>
+			<p className="text-2xl md:text-3xl text-blue-300 mb-6">Frontend Team Lead</p>
 
 			<p className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-				Building exceptional web experiences with React, Angular, and modern frontend technologies. Every pixel with
-				purpose. Every click with care.
+				Developer by profession, problem solver by nature. Passionate about building web applications, automating
+				workflows, and leveraging AI to create solutions that make a real impact.
 			</p>
 
 			<div className="flex flex-wrap justify-center gap-4 mb-12">
