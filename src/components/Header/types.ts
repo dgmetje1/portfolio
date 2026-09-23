@@ -6,4 +6,5 @@ export type HeaderProps = {
 	isMenuOpen: boolean;
 	setIsMenuOpen: (isMenuOpen: boolean) => void;
 	activeSection: Sections;
+	currentPage: string;
 };

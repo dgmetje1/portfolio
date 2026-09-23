@@ -1,4 +1,4 @@
-import { useState, Suspense, lazy } from 'react';
+import { useState, Suspense, lazy, useEffect, useRef } from 'react';
 import { Linkedin } from 'lucide-react';
 
 import { ThreeBackground } from './ThreeBackground';
@@ -19,20 +19,61 @@ const Footer = lazy(() => import('./Footer/Footer'));
 
 const SectionFallback = () => null;
 
+const VALID_SECTIONS: Sections[] = ['home', 'about', 'experience', 'skills', 'education', 'languages', 'contact'];
+
 export default () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [activeSection, setActiveSection] = useState<Sections>('home');
 	const [isScrolled] = useIsScrolled();
 	const { t } = useI18n();
+	const scrollToSectionRef = useRef<((id: Sections, smooth?: boolean) => void) | undefined>(undefined);
 
-	const scrollToSection = (id: Sections) => {
+	const scrollToSection = (id: Sections, smooth = true) => {
 		const element = document.getElementById(id);
 		if (element) {
-			element.scrollIntoView({ behavior: 'smooth' });
+			element.scrollIntoView({ behavior: smooth ? 'smooth' : 'auto' });
 			setActiveSection(id);
 			setIsMenuOpen(false);
 		}
 	};
+
+	scrollToSectionRef.current = scrollToSection;
+
+	// Handle query param navigation from other pages (e.g., /projects -> /?section=about)
+	useEffect(() => {
+		const params = new URLSearchParams(window.location.search);
+		const section = params.get('section');
+		if (section && VALID_SECTIONS.includes(section as Sections)) {
+			// Replace query param with hash without triggering navigation
+			const newUrl = `${window.location.pathname}#${section}`;
+			window.history.replaceState(null, '', newUrl);
+
+			// Wait for lazy sections to mount, then scroll
+			const tryScroll = () => {
+				const element = document.getElementById(section);
+				if (element) {
+					scrollToSectionRef.current?.(section as Sections, true);
+				} else {
+					// Section not mounted yet, retry
+					requestAnimationFrame(tryScroll);
+				}
+			};
+			requestAnimationFrame(tryScroll);
+		}
+	}, []);
+
+	// Handle hash changes while on the page
+	useEffect(() => {
+		const handleHashChange = () => {
+			const hash = window.location.hash.slice(1);
+			if (hash && VALID_SECTIONS.includes(hash as Sections)) {
+				scrollToSection(hash as Sections, true);
+			}
+		};
+
+		window.addEventListener('hashchange', handleHashChange);
+		return () => window.removeEventListener('hashchange', handleHashChange);
+	}, []);
 
 	return (
 		<div className="min-h-screen bg-linear-to-br from-slate-900 via-blue-900 to-slate-900 text-white relative overflow-hidden">
@@ -49,6 +90,7 @@ export default () => {
 				isScrolled={isScrolled}
 				scrollToSection={scrollToSection}
 				setIsMenuOpen={setIsMenuOpen}
+				currentPage="/"
 			/>
 			<main id="main-content" role="main">
 				<HomeSection scrollToSection={scrollToSection} />

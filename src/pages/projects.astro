@@ -1,11 +1,10 @@
 ---
-import App from '../components/App';
+import ProjectsApp from '../components/ProjectsPortfolio';
 import '../styles/global.css';
 
 const base = import.meta.env.BASE_URL;
-const title = 'Dani Garcia Metje - Portfolio';
-const description =
-	'Developer by profession, problem solver by nature. Passionate about building web applications, automating workflows, and leveraging AI to create solutions that make a real impact.';
+const title = 'Projects - Dani Garcia Metje';
+const description = 'Explore my personal projects and open source contributions. Under construction - more projects coming soon!';
 const siteUrl = 'https://dgmetje.dev';
 const ogImage = `${siteUrl}${base}og-image.png`;
 const twitterHandle = '@dgmetje';
@@ -13,7 +12,7 @@ const twitterHandle = '@dgmetje';
 
 <!doctype html>
 <html lang="en">
-<head>
+	<head>
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/x-icon" href={`${base}/favicon.ico`} />
 		<link rel="icon" type="image/png" sizes="32x32" href={`${base}/favicon-32x32.png`} />
@@ -29,22 +28,22 @@ const twitterHandle = '@dgmetje';
 		<meta name="description" content={description} />
 		<meta name="theme-color" content="#1e293b" />
 		<meta name="robots" content="index, follow" />
-		<link rel="canonical" href={siteUrl} />
-		<link rel="alternate" hreflang="en" href={`${siteUrl}/en/`} />
-		<link rel="alternate" hreflang="es" href={`${siteUrl}/es/`} />
-		<link rel="alternate" hreflang="ca" href={`${siteUrl}/ca/`} />
-		<link rel="alternate" hreflang="fr" href={`${siteUrl}/fr/`} />
-		<link rel="alternate" hreflang="x-default" href={siteUrl} />
+		<link rel="canonical" href={`${siteUrl}/projects`} />
+		<link rel="alternate" hreflang="en" href={`${siteUrl}/en/projects/`} />
+		<link rel="alternate" hreflang="es" href={`${siteUrl}/es/projects/`} />
+		<link rel="alternate" hreflang="ca" href={`${siteUrl}/ca/projects/`} />
+		<link rel="alternate" hreflang="fr" href={`${siteUrl}/fr/projects/`} />
+		<link rel="alternate" hreflang="x-default" href={`${siteUrl}/projects`} />
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content={siteUrl} />
+		<meta property="og:url" content={`${siteUrl}/projects`} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={`${siteUrl}${base}og-image.png`} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
-		<meta property="og:image:alt" content="Dani Garcia Metje - Portfolio Preview" />
+		<meta property="og:image:alt" content="Dani Garcia Metje - Projects Preview" />
 		<meta property="og:site_name" content="Dani Garcia Metje Portfolio" />
 		<meta property="og:locale" content="en_US" />
 		<meta property="og:locale:alternate" content="es_ES" />
@@ -53,53 +52,35 @@ const twitterHandle = '@dgmetje';
 
 		<!-- Twitter -->
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:url" content={siteUrl} />
+		<meta name="twitter:url" content={`${siteUrl}/projects`} />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={`${siteUrl}${base}og-image.png`} />
-		<meta name="twitter:image:alt" content="Dani Garcia Metje - Portfolio Preview" />
+		<meta name="twitter:image:alt" content="Dani Garcia Metje - Projects Preview" />
 		<meta name="twitter:site" content={twitterHandle} />
 		<meta name="twitter:creator" content={twitterHandle} />
 
 		<!-- Additional SEO -->
 		<meta name="author" content="Dani Garcia Metje" />
-		<meta
-			name="keywords"
-			content="Frontend Developer, React, TypeScript, Astro, Portfolio, Web Development, Team Lead, AI, Automation"
-		/>
+		<meta name="keywords" content="Frontend Developer, React, TypeScript, Astro, Portfolio, Projects, Open Source, Web Development" />
 
 		<!-- JSON-LD Structured Data -->
-		<script
-			type="application/ld+json"
-			set:html={JSON.stringify(
-				{
-					'@context': 'https://schema.org',
-					'@type': 'Person',
-					name: 'Dani Garcia Metje',
-					jobTitle: 'Frontend Team Lead',
-					url: siteUrl,
-					sameAs: ['https://github.com/dgmetje1', 'https://www.linkedin.com/in/dani-garcia-metje/'],
-					knowsAbout: [
-						'React',
-						'TypeScript',
-						'Astro',
-						'JavaScript',
-						'Frontend Development',
-						'Team Leadership',
-						'AI Integration',
-						'Automation',
-						'Web Performance'
-					],
-					description: description
-				},
-				null,
-				2
-			)}
-		/>
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "CollectionPage",
+			"name": "Projects",
+			"description": description,
+			"url": `${siteUrl}/projects`,
+			"mainEntity": {
+				"@type": "ItemList",
+				"name": "Personal Projects",
+				"description": "Collection of personal and open source projects"
+			}
+		}, null, 2)} />
 
 		<title>{title}</title>
 	</head>
 	<body class="m-0 p-0 overflow-x-hidden">
-		<App client:visible />
+		<ProjectsApp client:visible />
 	</body>
 </html>
