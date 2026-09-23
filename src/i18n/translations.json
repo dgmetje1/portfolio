@@ -7,6 +7,7 @@
 		"skills": "Skills",
 		"education": "Education",
 		"languages": "Languages",
+		"projects": "Projects",
 		"contact": "Contact",
 		"homeSectionTitle": "Dani Garcia Metje",
 		"homeSectionSubtitle": "Frontend Team Lead",
@@ -51,7 +52,13 @@
 		"educationListLabel": "Education",
 		"certificationsListLabel": "Certifications",
 		"languagesListLabel": "Languages",
-		"contactMethodsLabel": "Contact methods"
+		"contactMethodsLabel": "Contact methods",
+		"projectsSectionTitle": "Projects",
+		"projectsSectionSubtitle": "Under Construction",
+		"projectsSectionDescription": "I'm currently building something amazing. Stay tuned for my personal projects and open source contributions.",
+		"projectsComingSoon": "Coming Soon",
+		"projectsInProgress": "In Progress",
+		"projectsCheckBack": "Check back later for updates!"
 	},
 	"ca": {
 		"appName": "Dani Garcia Metje - Portfólio",
@@ -61,6 +68,7 @@
 		"skills": "Habilitats",
 		"education": "Formació",
 		"languages": "Llengües",
+		"projects": "Projectes",
 		"contact": "Contacte",
 		"homeSectionTitle": "Dani Garcia Metje",
 		"homeSectionSubtitle": "Frontend Team Lead",
@@ -105,7 +113,13 @@
 		"educationListLabel": "Formació",
 		"certificationsListLabel": "Certificacions",
 		"languagesListLabel": "Llengües",
-		"contactMethodsLabel": "Mètodes de contacte"
+		"contactMethodsLabel": "Mètodes de contacte",
+		"projectsSectionTitle": "Projectes",
+		"projectsSectionSubtitle": "En construcció",
+		"projectsSectionDescription": "Actualment estic construint alguna cosa increïble. Estate atents per als meus projectes personals i contribucions open source.",
+		"projectsComingSoon": "Pròximament",
+		"projectsInProgress": "En progrés",
+		"projectsCheckBack": "Torna més tard per actualitzacions!"
 	},
 	"es": {
 		"appName": "Dani Garcia Metje - Portafolio",
@@ -159,7 +173,13 @@
 		"educationListLabel": "Educación",
 		"certificationsListLabel": "Certificaciones",
 		"languagesListLabel": "Idiomas",
-		"contactMethodsLabel": "Métodos de contacto"
+		"contactMethodsLabel": "Métodos de contacto",
+		"projectsSectionTitle": "Proyectos",
+		"projectsSectionSubtitle": "En Construcción",
+		"projectsSectionDescription": "Actualmente estoy construyendo algo increíble. Estate atento a mis proyectos personales y contribuciones open source.",
+		"projectsComingSoon": "Próximamente",
+		"projectsInProgress": "En Progreso",
+		"projectsCheckBack": "¡Vuelve más tarde para actualizaciones!"
 	},
 	"fr": {
 		"appName": "Dani Garcia Metje - Portfolio",
@@ -213,6 +233,12 @@
 		"educationListLabel": "Formation",
 		"certificationsListLabel": "Certifications",
 		"languagesListLabel": "Langues",
-		"contactMethodsLabel": "Méthodes de contact"
+		"contactMethodsLabel": "Méthodes de contact",
+		"projectsSectionTitle": "Projets",
+		"projectsSectionSubtitle": "En Construction",
+		"projectsSectionDescription": "Je suis actuellement en train de construire quelque chose d'incroyable. Restez à l'écoute pour mes projets personnels et contributions open source.",
+		"projectsComingSoon": "Prochainement",
+		"projectsInProgress": "En Cours",
+		"projectsCheckBack": "Revenez plus tard pour les mises à jour!"
 	}
 }
