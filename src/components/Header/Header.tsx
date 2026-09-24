@@ -1,18 +1,22 @@
+import type { MouseEvent } from 'react';
 import { Menu, X } from 'lucide-react';
-import { useI18n } from '@/i18n/useI18n';
+import { useTranslation } from 'react-i18next';
+import { useLanguage } from '@/i18n/LanguageContext';
+import { getLocalizedPath, type Page } from '@/i18n/config';
 import type { HeaderProps } from './types';
 import LanguageSwitcher from '../LanguageSwitcher';
 import type { Sections } from '../types';
 
-const sections: { id: Sections; label: string; href: string; isExternal: boolean }[] = [
-	{ id: 'home', label: 'home', href: '/', isExternal: false },
-	{ id: 'about', label: 'about', href: '/?section=about', isExternal: true },
-	{ id: 'experience', label: 'experience', href: '/?section=experience', isExternal: true },
-	{ id: 'skills', label: 'skills', href: '/?section=skills', isExternal: true },
-	{ id: 'education', label: 'education', href: '/?section=education', isExternal: true },
-	{ id: 'languages', label: 'languages', href: '/?section=languages', isExternal: true },
-	{ id: 'projects', label: 'projects', href: '/projects', isExternal: true },
-	{ id: 'contact', label: 'contact', href: '/?section=contact', isExternal: true },
+// Each nav item is either a section of the home page or a standalone page
+const sections: { id: Sections; label: string; page: Page; isSection: boolean }[] = [
+	{ id: 'home', label: 'home', page: 'home', isSection: true },
+	{ id: 'about', label: 'about', page: 'home', isSection: true },
+	{ id: 'experience', label: 'experience', page: 'home', isSection: true },
+	{ id: 'skills', label: 'skills', page: 'home', isSection: true },
+	{ id: 'education', label: 'education', page: 'home', isSection: true },
+	{ id: 'languages', label: 'languages', page: 'home', isSection: true },
+	{ id: 'projects', label: 'projects', page: 'projects', isSection: false },
+	{ id: 'contact', label: 'contact', page: 'home', isSection: true }
 ];
 
 export default ({
@@ -23,17 +27,23 @@ export default ({
 	activeSection,
 	currentPage
 }: HeaderProps) => {
-	const { t } = useI18n();
+	const { t } = useTranslation();
+	const { language } = useLanguage();
 
-	const handleSectionClick = (section: (typeof sections)[0]) => {
-		if (section.isExternal) {
-			window.location.href = section.href;
-		} else if (currentPage === '/') {
+	const getHref = (section: (typeof sections)[number]) =>
+		getLocalizedPath(language, section.page) + (section.isSection && section.id !== 'home' ? `#${section.id}` : '');
+
+	const handleSectionClick = (event: MouseEvent<HTMLAnchorElement>, section: (typeof sections)[number]) => {
+		// Same-page sections scroll smoothly; everything else is a regular link navigation
+		if (section.isSection && currentPage === 'home') {
+			event.preventDefault();
 			scrollToSection(section.id);
-		} else {
-			window.location.href = section.href;
+			window.history.replaceState(null, '', getHref(section));
 		}
 	};
+
+	const isActive = (section: (typeof sections)[number]) =>
+		section.isSection ? currentPage === 'home' && activeSection === section.id : currentPage === section.page;
 
 	const sectionsTranslated = sections.map(section => t(section.label));
 
@@ -49,7 +59,7 @@ export default ({
 					<div className="flex items-center justify-between h-16">
 						<div className="flex items-center">
 							<a
-								href="/"
+								href={getLocalizedPath(language)}
 								className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded"
 							>
 								DGM
@@ -59,19 +69,18 @@ export default ({
 						<div className="hidden md:block">
 							<div className="ml-10 flex items-baseline space-x-4" role="menubar">
 								{sections.map((item, index) => (
-									<button
+									<a
 										key={item.id}
+										href={getHref(item)}
 										role="menuitem"
-										aria-current={activeSection === item.id ? 'page' : currentPage === item.href ? 'page' : undefined}
-										onClick={() => handleSectionClick(item)}
+										aria-current={isActive(item) ? 'page' : undefined}
+										onClick={e => handleSectionClick(e, item)}
 										className={`px-3 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 ${
-											activeSection === item.id || (currentPage && currentPage === item.href)
-												? 'bg-blue-600 text-white'
-												: 'text-gray-300 hover:bg-blue-600/50 hover:text-white'
+											isActive(item) ? 'bg-blue-600 text-white' : 'text-gray-300 hover:bg-blue-600/50 hover:text-white'
 										}`}
 									>
 										{sectionsTranslated[index]}
-									</button>
+									</a>
 								))}
 							</div>
 						</div>
@@ -104,18 +113,19 @@ export default ({
 					>
 						<div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
 							{sections.map((item, index) => (
-								<button
+								<a
 									key={item.id}
+									href={getHref(item)}
 									role="menuitem"
-									aria-current={activeSection === item.id ? 'page' : currentPage === item.href ? 'page' : undefined}
-									onClick={() => handleSectionClick(item)}
+									aria-current={isActive(item) ? 'page' : undefined}
+									onClick={e => handleSectionClick(e, item)}
 									className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900"
 								>
 									{sectionsTranslated[index]}
-								</button>
+								</a>
 							))}
 							<div className="pt-4 border-t border-slate-700">
-								<LanguageSwitcher />
+								<LanguageSwitcher id="language-select-mobile" />
 							</div>
 						</div>
 					</div>

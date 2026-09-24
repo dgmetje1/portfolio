@@ -1,10 +1,10 @@
 import { certifications } from '@/data/certifications';
 import { education } from '@/data/education';
 import { Award, GraduationCap } from 'lucide-react';
-import { useI18n } from '@/i18n/useI18n';
+import { useTranslation } from 'react-i18next';
 
 export default () => {
-	const { t } = useI18n();
+	const { t } = useTranslation();
 
 	return (
 		<section id="education" aria-labelledby="education-title" className="py-20 px-4 bg-slate-900/50">

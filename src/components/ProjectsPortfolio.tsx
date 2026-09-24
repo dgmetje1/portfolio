@@ -4,7 +4,7 @@ import { ThreeBackground } from './ThreeBackground';
 import useIsScrolled from '@/hooks/useIsScrolled';
 import type { Sections } from './types';
 import Header from './Header';
-import { useI18n } from '@/i18n/useI18n';
+import { useTranslation } from 'react-i18next';
 
 // Lazy load non-critical sections
 const ProjectsSection = lazy(() => import('./sections/Projects/ProjectsSection'));
@@ -16,7 +16,7 @@ export default () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [activeSection, setActiveSection] = useState<Sections>('projects');
 	const [isScrolled] = useIsScrolled();
-	const { t } = useI18n();
+	const { t } = useTranslation();
 
 	const scrollToSection = (id: Sections) => {
 		const element = document.getElementById(id);
@@ -42,7 +42,7 @@ export default () => {
 				isScrolled={isScrolled}
 				scrollToSection={scrollToSection}
 				setIsMenuOpen={setIsMenuOpen}
-				currentPage="/projects"
+				currentPage="projects"
 			/>
 			<main id="main-content" role="main">
 				<Suspense fallback={<SectionFallback />}>

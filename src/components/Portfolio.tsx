@@ -1,12 +1,11 @@
 import { useState, Suspense, lazy, useEffect, useRef } from 'react';
-import { Linkedin } from 'lucide-react';
 
 import { ThreeBackground } from './ThreeBackground';
 import useIsScrolled from '@/hooks/useIsScrolled';
 import type { Sections } from './types';
 import Header from './Header';
 import HomeSection from './sections/Home/HomeSection';
-import { useI18n } from '@/i18n/useI18n';
+import { useTranslation } from 'react-i18next';
 
 // Lazy load non-critical sections
 const AboutMeSection = lazy(() => import('./sections/AboutMe/AboutMeSection'));
@@ -25,7 +24,7 @@ export default () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [activeSection, setActiveSection] = useState<Sections>('home');
 	const [isScrolled] = useIsScrolled();
-	const { t } = useI18n();
+	const { t } = useTranslation();
 	const scrollToSectionRef = useRef<((id: Sections, smooth?: boolean) => void) | undefined>(undefined);
 
 	const scrollToSection = (id: Sections, smooth = true) => {
@@ -39,27 +38,23 @@ export default () => {
 
 	scrollToSectionRef.current = scrollToSection;
 
-	// Handle query param navigation from other pages (e.g., /projects -> /?section=about)
+	// Handle deep links from other pages (e.g. /es/projects/ -> /es/#about)
 	useEffect(() => {
-		const params = new URLSearchParams(window.location.search);
-		const section = params.get('section');
-		if (section && VALID_SECTIONS.includes(section as Sections)) {
-			// Replace query param with hash without triggering navigation
-			const newUrl = `${window.location.pathname}#${section}`;
-			window.history.replaceState(null, '', newUrl);
+		const section = window.location.hash.slice(1);
+		if (!VALID_SECTIONS.includes(section as Sections)) return;
 
-			// Wait for lazy sections to mount, then scroll
-			const tryScroll = () => {
-				const element = document.getElementById(section);
-				if (element) {
-					scrollToSectionRef.current?.(section as Sections, true);
-				} else {
-					// Section not mounted yet, retry
-					requestAnimationFrame(tryScroll);
-				}
-			};
-			requestAnimationFrame(tryScroll);
-		}
+		// Lazy sections are not mounted yet on first render, so retry until the target exists
+		let frame = 0;
+		let attempts = 0;
+		const tryScroll = () => {
+			if (document.getElementById(section)) {
+				scrollToSectionRef.current?.(section as Sections, true);
+			} else if (attempts++ < 120) {
+				frame = requestAnimationFrame(tryScroll);
+			}
+		};
+		frame = requestAnimationFrame(tryScroll);
+		return () => cancelAnimationFrame(frame);
 	}, []);
 
 	// Handle hash changes while on the page
@@ -90,7 +85,7 @@ export default () => {
 				isScrolled={isScrolled}
 				scrollToSection={scrollToSection}
 				setIsMenuOpen={setIsMenuOpen}
-				currentPage="/"
+				currentPage="home"
 			/>
 			<main id="main-content" role="main">
 				<HomeSection scrollToSection={scrollToSection} />

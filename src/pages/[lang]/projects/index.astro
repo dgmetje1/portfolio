@@ -1,0 +1,36 @@
+---
+import App from '../../../components/App';
+import Layout from '../../../layouts/Layout.astro';
+import translations from '../../../i18n/translations.json';
+import { locales, type Lang } from '../../../i18n/config';
+
+export function getStaticPaths() {
+	return locales.map(lang => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const t = translations[lang];
+const title = `${t.projectsSectionTitle} - Dani Garcia Metje`;
+const description = t.projectsSectionDescription;
+---
+
+<Layout
+	lang={lang}
+	page="projects"
+	title={title}
+	description={description}
+	keywords="Frontend Developer, React, TypeScript, Astro, Portfolio, Projects, Open Source, Web Development"
+	ogImageAlt="Dani Garcia Metje - Projects Preview"
+	jsonLd={{
+		'@type': 'CollectionPage',
+		name: t.projectsSectionTitle,
+		description,
+		mainEntity: {
+			'@type': 'ItemList',
+			name: 'Personal Projects',
+			description: 'Collection of personal and open source projects'
+		}
+	}}
+>
+	<App client:visible lang={lang} page="projects" />
+</Layout>
