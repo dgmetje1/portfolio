@@ -54,11 +54,13 @@
 		"languagesListLabel": "Languages",
 		"contactMethodsLabel": "Contact methods",
 		"projectsSectionTitle": "Projects",
-		"projectsSectionSubtitle": "Under Construction",
-		"projectsSectionDescription": "I'm currently building something amazing. Stay tuned for my personal projects and open source contributions.",
-		"projectsComingSoon": "Coming Soon",
-		"projectsInProgress": "In Progress",
-		"projectsCheckBack": "Check back later for updates!"
+		"projectsSectionSubtitle": "Things I've built",
+		"projectsSectionDescription": "A selection of personal projects where I explore new ideas, technologies and product design.",
+		"projectsListLabel": "Projects list",
+		"projectsVideoLabel": "{{name}} demo video",
+		"projectsViewProject": "View project",
+		"opensInNewTab": "(opens in a new tab)",
+		"projectsMoreComing": "More projects coming soon!"
 	},
 	"ca": {
 		"appName": "Dani Garcia Metje - Portafoli",
@@ -115,11 +117,13 @@
 		"languagesListLabel": "Llengües",
 		"contactMethodsLabel": "Mètodes de contacte",
 		"projectsSectionTitle": "Projectes",
-		"projectsSectionSubtitle": "En construcció",
-		"projectsSectionDescription": "Actualment estic construint alguna cosa increïble. Estigueu atents als meus projectes personals i contribucions open source.",
-		"projectsComingSoon": "Pròximament",
-		"projectsInProgress": "En progrés",
-		"projectsCheckBack": "Torna més tard per veure les novetats!"
+		"projectsSectionSubtitle": "Coses que he construït",
+		"projectsSectionDescription": "Una selecció de projectes personals on exploro noves idees, tecnologies i disseny de producte.",
+		"projectsListLabel": "Llista de projectes",
+		"projectsVideoLabel": "Vídeo de demostració de {{name}}",
+		"projectsViewProject": "Veure el projecte",
+		"opensInNewTab": "(s'obre en una pestanya nova)",
+		"projectsMoreComing": "Aviat hi haurà més projectes!"
 	},
 	"es": {
 		"appName": "Dani Garcia Metje - Portafolio",
@@ -176,11 +180,13 @@
 		"languagesListLabel": "Idiomas",
 		"contactMethodsLabel": "Métodos de contacto",
 		"projectsSectionTitle": "Proyectos",
-		"projectsSectionSubtitle": "En Construcción",
-		"projectsSectionDescription": "Actualmente estoy construyendo algo increíble. Mantente atento a mis proyectos personales y contribuciones open source.",
-		"projectsComingSoon": "Próximamente",
-		"projectsInProgress": "En Progreso",
-		"projectsCheckBack": "¡Vuelve más tarde para ver las novedades!"
+		"projectsSectionSubtitle": "Cosas que he construido",
+		"projectsSectionDescription": "Una selección de proyectos personales donde exploro nuevas ideas, tecnologías y diseño de producto.",
+		"projectsListLabel": "Lista de proyectos",
+		"projectsVideoLabel": "Vídeo de demostración de {{name}}",
+		"projectsViewProject": "Ver el proyecto",
+		"opensInNewTab": "(se abre en una pestaña nueva)",
+		"projectsMoreComing": "¡Pronto habrá más proyectos!"
 	},
 	"fr": {
 		"appName": "Dani Garcia Metje - Portfolio",
@@ -237,10 +243,12 @@
 		"languagesListLabel": "Langues",
 		"contactMethodsLabel": "Méthodes de contact",
 		"projectsSectionTitle": "Projets",
-		"projectsSectionSubtitle": "En Construction",
-		"projectsSectionDescription": "Je construis actuellement quelque chose d'incroyable. Restez à l'écoute pour mes projets personnels et contributions open source.",
-		"projectsComingSoon": "Prochainement",
-		"projectsInProgress": "En Cours",
-		"projectsCheckBack": "Revenez plus tard pour les mises à jour !"
+		"projectsSectionSubtitle": "Ce que j'ai construit",
+		"projectsSectionDescription": "Une sélection de projets personnels où j'explore de nouvelles idées, technologies et le design produit.",
+		"projectsListLabel": "Liste des projets",
+		"projectsVideoLabel": "Vidéo de démonstration de {{name}}",
+		"projectsViewProject": "Voir le projet",
+		"opensInNewTab": "(s'ouvre dans un nouvel onglet)",
+		"projectsMoreComing": "D'autres projets arrivent bientôt !"
 	}
 }
