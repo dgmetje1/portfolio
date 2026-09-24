@@ -7,8 +7,9 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import { fileURLToPath } from 'node:url';
 
+// Deployed as a GitHub Pages project site (https://<user>.github.io/<repo>/); both are set in CI
 const base = process.env.VITE_BASE_URL || '/';
-const site = 'https://dgmetje1.github.io';
+const site = process.env.SITE_URL || 'https://dgmetje1.github.io';
 
 // https://astro.build/config
 export default defineConfig({
