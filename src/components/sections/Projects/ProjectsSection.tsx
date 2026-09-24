@@ -1,8 +1,8 @@
 import { Construction, Hammer, Wrench } from 'lucide-react';
-import { useI18n } from '@/i18n/useI18n';
+import { useTranslation } from 'react-i18next';
 
 export default () => {
-	const { t } = useI18n();
+	const { t } = useTranslation();
 
 	return (
 		<section id="projects" aria-labelledby="projects-title" className="min-h-screen flex items-center justify-center px-4 pt-16">

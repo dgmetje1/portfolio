@@ -1,8 +1,8 @@
 import { Linkedin } from 'lucide-react';
-import { useI18n } from '@/i18n/useI18n';
+import { useTranslation } from 'react-i18next';
 
 export default () => {
-	const { t } = useI18n();
+	const { t } = useTranslation();
 
 	return (
 		<section id="contact" aria-labelledby="contact-title" className="py-20 px-4">

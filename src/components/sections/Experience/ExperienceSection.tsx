@@ -1,8 +1,8 @@
 import { experiences } from '@/data/experiences';
-import { useI18n } from '@/i18n/useI18n';
+import { useTranslation } from 'react-i18next';
 
 export default () => {
-	const { t } = useI18n();
+	const { t } = useTranslation();
 
 	return (
 		<section id="experience" aria-labelledby="experience-title" className="py-20 px-4 bg-slate-900/50">

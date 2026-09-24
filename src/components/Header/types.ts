@@ -1,3 +1,4 @@
+import type { Page } from '@/i18n/config';
 import type { Sections } from '../types';
 
 export type HeaderProps = {
@@ -6,5 +7,5 @@ export type HeaderProps = {
 	isMenuOpen: boolean;
 	setIsMenuOpen: (isMenuOpen: boolean) => void;
 	activeSection: Sections;
-	currentPage: string;
+	currentPage: Page;
 };

@@ -1,0 +1,35 @@
+---
+// Non-localized entry points (/ and /projects) redirect to the visitor's language:
+// saved choice > browser language > default language
+import { defaultLang, getLocalizedPath, locales, type Page } from '../i18n/config';
+
+interface Props {
+	page: Page;
+}
+
+const { page } = Astro.props;
+const targets = Object.fromEntries(locales.map(lang => [lang, getLocalizedPath(lang, page)]));
+const fallback = targets[defaultLang];
+---
+
+<!doctype html>
+<html lang={defaultLang}>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Dani Garcia Metje - Portfolio</title>
+		<meta name="robots" content="noindex" />
+		<link rel="canonical" href={new URL(fallback, Astro.site).href} />
+		<script is:inline define:vars={{ targets, fallback }}>
+			let saved = null;
+			try {
+				saved = localStorage.getItem('lang');
+			} catch {}
+			const browser = (navigator.language || '').slice(0, 2).toLowerCase();
+			location.replace((targets[saved] || targets[browser] || fallback) + location.hash);
+		</script>
+		<noscript><meta http-equiv="refresh" content={`0; url=${fallback}`} /></noscript>
+	</head>
+	<body>
+		<a href={fallback}>{fallback}</a>
+	</body>
+</html>

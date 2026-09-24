@@ -1,7 +1,7 @@
-import { useI18n } from '@/i18n/useI18n';
+import { useTranslation } from 'react-i18next';
 
 export default () => {
-	const { t } = useI18n();
+	const { t } = useTranslation();
 
 	return (
 		<footer role="contentinfo" className="bg-slate-900/80 backdrop-blur-sm py-8 px-4 border-t border-blue-500/20">

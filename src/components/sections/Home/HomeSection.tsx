@@ -1,9 +1,9 @@
 import { ChevronDown, Code, Linkedin } from 'lucide-react';
-import { useI18n } from '@/i18n/useI18n';
+import { useTranslation } from 'react-i18next';
 import type { HomeSectionProps } from './types';
 
 export default ({ scrollToSection }: HomeSectionProps) => {
-	const { t } = useI18n();
+	const { t } = useTranslation();
 
 	return (
 		<section id="home" aria-labelledby="home-title" className="min-h-screen flex items-center justify-center px-4 pt-16">

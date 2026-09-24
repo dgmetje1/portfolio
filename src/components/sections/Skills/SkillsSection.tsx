@@ -2,11 +2,11 @@ import { skills } from '@/data/skills';
 import useToggle from '@/hooks/useToggle';
 import { ChevronDown } from 'lucide-react';
 import { useMemo } from 'react';
-import { useI18n } from '@/i18n/useI18n';
+import { useTranslation } from 'react-i18next';
 
 const SkillsSection = () => {
 	const [toggleValue, toggle] = useToggle();
-	const { t } = useI18n();
+	const { t } = useTranslation();
 
 	const shownSkills = useMemo(() => {
 		if (toggleValue) return skills;
