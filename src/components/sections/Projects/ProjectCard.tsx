@@ -46,7 +46,14 @@ export default ({ project }: { project: Project }) => {
 
 			<div className="p-8">
 				<h3 className="text-2xl font-bold text-blue-400 mb-3">{project.name}</h3>
-				<p className="text-gray-300 mb-6 leading-relaxed">{project.description[language]}</p>
+				<p className="text-gray-300 mb-4 leading-relaxed">{project.description[language]}</p>
+				<div className="flex flex-wrap gap-2 mb-6" role="list" aria-label={t('projectsTechnologiesLabel')}>
+					{project.technologies.map(tech => (
+						<span key={tech} role="listitem" className="px-3 py-1 bg-blue-600/30 text-blue-300 rounded-full text-sm">
+							{tech}
+						</span>
+					))}
+				</div>
 
 				{project.link && (
 					<a
