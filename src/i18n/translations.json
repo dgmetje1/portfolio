@@ -59,6 +59,7 @@
 		"projectsListLabel": "Projects list",
 		"projectsVideoLabel": "{{name}} demo video",
 		"projectsViewProject": "View project",
+		"projectsTechnologiesLabel": "Technologies used",
 		"opensInNewTab": "(opens in a new tab)",
 		"projectsMoreComing": "More projects coming soon!"
 	},
@@ -122,6 +123,7 @@
 		"projectsListLabel": "Llista de projectes",
 		"projectsVideoLabel": "Vídeo de demostració de {{name}}",
 		"projectsViewProject": "Veure el projecte",
+		"projectsTechnologiesLabel": "Tecnologies utilitzades",
 		"opensInNewTab": "(s'obre en una pestanya nova)",
 		"projectsMoreComing": "Aviat hi haurà més projectes!"
 	},
@@ -185,6 +187,7 @@
 		"projectsListLabel": "Lista de proyectos",
 		"projectsVideoLabel": "Vídeo de demostración de {{name}}",
 		"projectsViewProject": "Ver el proyecto",
+		"projectsTechnologiesLabel": "Tecnologías utilizadas",
 		"opensInNewTab": "(se abre en una pestaña nueva)",
 		"projectsMoreComing": "¡Pronto habrá más proyectos!"
 	},
@@ -248,6 +251,7 @@
 		"projectsListLabel": "Liste des projets",
 		"projectsVideoLabel": "Vidéo de démonstration de {{name}}",
 		"projectsViewProject": "Voir le projet",
+		"projectsTechnologiesLabel": "Technologies utilisées",
 		"opensInNewTab": "(s'ouvre dans un nouvel onglet)",
 		"projectsMoreComing": "D'autres projets arrivent bientôt !"
 	}
