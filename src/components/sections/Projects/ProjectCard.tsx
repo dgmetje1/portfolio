@@ -36,7 +36,7 @@ export default ({ project }: { project: Project }) => {
 				src={withBase(project.video)}
 				poster={withBase(project.poster)}
 				aria-label={t('projectsVideoLabel', { name: project.name })}
-				className="w-full aspect-video bg-slate-900 object-cover"
+				className="w-full aspect-video max-h-[55vh] bg-slate-900 object-contain"
 				muted
 				loop
 				playsInline

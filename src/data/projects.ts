@@ -37,5 +37,31 @@ export const projects: Project[] = [
 		link: '', // TODO: add the project URL (live demo or repository)
 		video: 'assets/shelf_less.mp4',
 		poster: 'assets/shelf_less-poster.jpg'
+	},
+	{
+		name: 'VocalFlow',
+		description: {
+			en: 'An intonation trainer for language learners: speak a phrase and see your pitch curve drawn live over a native speaker’s, with a match score, a per-word breakdown of where you drifted and daily drills picked by spaced repetition. All voice processing runs in the browser, with no backend.',
+			ca: 'Un entrenador d’entonació per a estudiants d’idiomes: digues una frase i veu la teva corba de to dibuixada en directe sobre la d’un parlant natiu, amb una puntuació de coincidència, un desglossament per paraula d’on t’has desviat i exercicis diaris triats per repetició espaiada. Tot el processament de veu es fa al navegador, sense backend.',
+			es: 'Un entrenador de entonación para estudiantes de idiomas: di una frase y ve tu curva de tono dibujada en directo sobre la de un hablante nativo, con una puntuación de coincidencia, un desglose por palabra de dónde te has desviado y ejercicios diarios elegidos por repetición espaciada. Todo el procesamiento de voz se hace en el navegador, sin backend.',
+			fr: 'Un entraîneur d’intonation pour les apprenants en langues : prononcez une phrase et voyez votre courbe de hauteur tracée en direct sur celle d’un locuteur natif, avec un score de correspondance, une analyse mot par mot de vos écarts et des exercices quotidiens choisis par répétition espacée. Tout le traitement de la voix se fait dans le navigateur, sans backend.'
+		},
+		technologies: ['Vue', 'Web Audio API'],
+		link: '', // TODO: add the project URL (live demo or repository)
+		video: 'assets/voiceflow.mp4',
+		poster: 'assets/voiceflow-poster.jpg'
+	},
+	{
+		name: 'ngx-render-visualizer',
+		description: {
+			en: 'A dev-only Angular library that shows what change detection really does: which components get checked and why, what OnPush and signals skip, and which DOM nodes the renderer touches. Added with a single provider line, it includes step-by-step replay of each cycle and works with both zoneless and zone.js apps.',
+			ca: 'Una llibreria d’Angular per a desenvolupament que mostra què fa realment la detecció de canvis: quins components es revisen i per què, què s’estalvien OnPush i els signals, i quins nodes del DOM toca el renderitzador. S’afegeix amb una sola línia de provider, permet reproduir cada cicle pas a pas i funciona tant en aplicacions zoneless com amb zone.js.',
+			es: 'Una librería de Angular para desarrollo que muestra qué hace realmente la detección de cambios: qué componentes se revisan y por qué, qué se ahorran OnPush y los signals, y qué nodos del DOM toca el renderizador. Se añade con una sola línea de provider, permite reproducir cada ciclo paso a paso y funciona tanto en aplicaciones zoneless como con zone.js.',
+			fr: 'Une bibliothèque Angular réservée au développement qui montre ce que fait réellement la détection de changements : quels composants sont vérifiés et pourquoi, ce qu’OnPush et les signals évitent, et quels nœuds du DOM le moteur de rendu modifie. Elle s’ajoute en une seule ligne de provider, permet de rejouer chaque cycle pas à pas et fonctionne aussi bien en mode zoneless qu’avec zone.js.'
+		},
+		technologies: ['Angular', 'TypeScript'],
+		link: '', // TODO: add the project URL (live demo or repository)
+		video: 'assets/ngx-render-visualizer.mp4',
+		poster: 'assets/ngx-render-visualizer-poster.jpg'
 	}
 ];
