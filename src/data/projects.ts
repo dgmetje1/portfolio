@@ -63,5 +63,18 @@ export const projects: Project[] = [
 		link: '', // TODO: add the project URL (live demo or repository)
 		video: 'assets/ngx-render-visualizer.mp4',
 		poster: 'assets/ngx-render-visualizer-poster.jpg'
+	},
+	{
+		name: 'homely',
+		description: {
+			en: 'A playground for the View Transition API with the Angular router, built as an app for browsing homes to rent or buy. Listing photos fly into the detail page and back, cards re-flow as you filter, the grid morphs into a list and photos grow into a full-screen viewer. Browsers without support get the same app without the animations.',
+			ca: 'Una web per provar la View Transition API amb el router d’Angular, construït com una aplicació per explorar habitatges de lloguer o de compra. Les fotos dels anuncis volen fins a la pàgina de detall i tornen, les targetes es reorganitzen en filtrar, la graella es transforma en una llista i les fotos creixen fins a un visor a pantalla completa. Els navegadors sense suport tenen la mateixa aplicació sense les animacions.',
+			es: 'Una web para probar la View Transition API con el router de Angular, construido como una aplicación para explorar viviendas en alquiler o en venta. Las fotos de los anuncios vuelan hasta la página de detalle y vuelven, las tarjetas se reorganizan al filtrar, la cuadrícula se transforma en una lista y las fotos crecen hasta un visor a pantalla completa. Los navegadores sin soporte tienen la misma aplicación sin las animaciones.',
+			fr: 'Un terrain de jeu pour la View Transition API avec le routeur d’Angular, conçu comme une application pour parcourir des logements à louer ou à acheter. Les photos des annonces s’envolent vers la page de détail et reviennent, les cartes se réorganisent quand on filtre, la grille se transforme en liste et les photos s’agrandissent en visionneuse plein écran. Les navigateurs non compatibles affichent la même application, sans les animations.'
+		},
+		technologies: ['Angular', 'View Transition API'],
+		link: '', // TODO: add the project URL (live demo or repository)
+		video: 'assets/homely.mp4',
+		poster: 'assets/homely-poster.jpg'
 	}
 ];

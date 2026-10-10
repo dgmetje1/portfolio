@@ -14,6 +14,7 @@
 		"@astrojs/react": "^7.0.0",
 		"@astrojs/sitemap": "^3.7.4",
 		"@icons-pack/react-simple-icons": "^13.15.1",
+		"@microsoft/clarity": "^1.0.2",
 		"@tailwindcss/vite": "^4.3.3",
 		"astro": "^7.3.5",
 		"i18next": "^26.4.2",

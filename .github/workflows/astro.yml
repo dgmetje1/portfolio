@@ -33,6 +33,8 @@ jobs:
           # Project site: https://<user>.github.io/<repo>/
           SITE_URL: 'https://${{ github.repository_owner }}.github.io'
           VITE_BASE_URL: '/${{ github.event.repository.name }}'
+          # Microsoft Clarity project ID (Settings → Secrets and variables → Actions → Variables)
+          PUBLIC_CLARITY_PROJECT_ID: ${{ vars.CLARITY_PROJECT_ID }}
 
   deploy:
     needs: build
