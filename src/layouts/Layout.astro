@@ -75,6 +75,17 @@ const twitterHandle = '@dgmetje';
 		<script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', url: canonicalUrl, ...jsonLd })} />
 
 		<title>{title}</title>
+
+		<!-- Microsoft Clarity analytics; only loaded when a project ID is configured (set in CI) -->
+		<script>
+			import Clarity from '@microsoft/clarity';
+
+			const projectId = import.meta.env.PUBLIC_CLARITY_PROJECT_ID;
+			if (projectId) {
+				Clarity.init(projectId);
+				Clarity.setTag('lang', document.documentElement.lang);
+			}
+		</script>
 	</head>
 	<body class="m-0 p-0 overflow-x-hidden">
 		<slot />
